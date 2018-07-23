@@ -1,0 +1,8 @@
+parameters:
+    locale: 'fr'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
