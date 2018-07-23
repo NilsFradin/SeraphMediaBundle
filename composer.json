@@ -1,5 +1,5 @@
 {
-    "name": "seraph/medi-bundle",
+    "name": "seraph/media-bundle",
     "description": "Media Bundle is a solution to manage a multimedia library.",
     "type": "symfony-bundle",
     "license": "MIT",
