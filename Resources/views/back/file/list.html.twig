@@ -1,0 +1,49 @@
+{% extends '@SeraphMedia/back/base.html.twig' %}
+
+{% block title %}File list{% endblock %}
+
+{% block body %}
+    <table {% block table_attr %} class="table table-bordered table-striped table-sm" {% endblock %}>
+        {% block thead %}
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Date Update</th>
+                    <th>Group</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+        {% endblock %}
+        {% block tbody %}
+            <tbody>
+                {% for file in files %}
+                    <tr>
+                        <td>{{ file.id }}</td>
+                        <td>{{ file.name }}</td>
+                        <td>{{ file.updateAt|date('d-m-Y') }}</td>
+                        <td>{{ file.group.name|default('No group') }}</td>
+                        <td>{{ file.user.fullName|default('No user') }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>No result</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        {% endblock %}
+    </table>
+
+    {% block page_actions %}
+        <div>
+            <a href="{{ path('seraph-add-file') }}" class="btn btn-sm btn-outline-success">
+                <i class="fas fa-plus mr-1"></i>
+                New
+            </a>
+        </div>
+    {% endblock %}
+{% endblock %}

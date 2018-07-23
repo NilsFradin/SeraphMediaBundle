@@ -187,4 +187,9 @@ class User extends BaseUser
         $file->setUser($this);
         $this->files->add($file);
     }
+
+    public function getFullName()
+    {
+        return $this->firstname.' '.$this->name;
+    }
 }
