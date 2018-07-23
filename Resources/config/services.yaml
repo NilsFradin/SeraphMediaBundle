@@ -4,10 +4,10 @@ services:
         autoconfigure: true
         public: false
 
-    Seraph\Bundle\MediaBundle:
+    Seraph\Bundle\MediaBundle\:
         resource: '../../*'
         exclude: '../../{Controller, Entity, Form, Resources, Twig}'
 
-    Seraph\Bundle\MediaBundle\Controller:
+    Seraph\Bundle\MediaBundle\Controller\:
         resource: '../../Controller'
         tags : ['controller.service_arguments']

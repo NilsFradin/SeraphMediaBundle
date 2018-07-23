@@ -3,7 +3,7 @@
     "description": "Media Bundle is a solution to manage a multimedia library.",
     "type": "symfony-bundle",
     "license": "MIT",
-    "keywords": ["Media", "Multimedia", "Library", "User"],
+    "keywords": ["Media", "Multimedia", "Library", "User", "Multimedia library"],
     "require": {
         "php": "^7.0",
         "friendsofsymfony/user-bundle": "^2.1",

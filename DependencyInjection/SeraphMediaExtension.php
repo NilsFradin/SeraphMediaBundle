@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sERAPH1
- * Date: 23/07/2018
- * Time: 14:39
- */
 
 namespace Seraph\Bundle\MediaBundle\DependencyInjection;
 
@@ -21,6 +15,6 @@ class SeraphMediaExtension extends Extension
         $configs = $this->processConfiguration($configuration, $configs);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('service.yaml');
+        $loader->load('services.yaml');
     }
 }
