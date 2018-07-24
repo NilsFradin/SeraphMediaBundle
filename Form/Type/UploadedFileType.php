@@ -1,6 +1,6 @@
 <?php
 
-namespace Seraph\Bundle\MediaBundle\Form;
+namespace Seraph\Bundle\MediaBundle\Form\Type;
 
 
 use Seraph\Bundle\MediaBundle\Entity\Group;
@@ -15,7 +15,6 @@ class UploadedFileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', null, array('label' => 'French Title', 'attr' => array('class' => 'form-control')))
             ->add('file', VichFileType::class, ['required' => false, 'allow_delete' => true, 'attr' => array('class' => 'form-control')])
             ->add('group', null, array('choice_label' => 'name', 'label' => 'Group', 'attr' => array('class' => 'form-control')))
             ->add('user', null, array('choice_label' => 'fullName', 'label' => 'User', 'attr' => array('class' => 'form-control')));

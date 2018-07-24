@@ -1,10 +1,10 @@
 parameters:
-    app.path.user_contracts: /uploads/
+    app.path.uploaded_file: /uploads/
 
 vich_uploader:
     db_driver: orm
 
     mappings:
-        user_contracts:
-            uri_prefix: '%app.path.user_contracts%'
+        uploaded_file:
+            uri_prefix: '%app.path.uploaded_file%'
             upload_destination: '%kernel.root_dir%/../web/uploads/'

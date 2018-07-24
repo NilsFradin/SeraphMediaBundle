@@ -4,7 +4,7 @@ namespace Seraph\Bundle\MediaBundle\Controller;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Seraph\Bundle\MediaBundle\Entity\UploadedFile;
-use Seraph\Bundle\MediaBundle\Form\UploadedFileType;
+use Seraph\Bundle\MediaBundle\Form\Type\UploadedFileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UploadedFileController extends Controller
 {
     /**
-     * @Route(name="seraph-list-file", path="/media/file/list"
+     * @Route(name="seraph-list-file", path="/media/file/list")
      */
     public function listFile(ManagerRegistry $registry)
     {
@@ -47,7 +47,7 @@ class UploadedFileController extends Controller
      */
     public function editFile(ManagerRegistry $registry, Request $request, $id_file)
     {
-        $repository = $registry->getRepository(UploadedFile::class);
+        $repository = $registry->getRepository(UploadedFile::class, $file);
         $file = $repository->find($id_file);
 
         $form = $this->createForm(UploadedFileType::class);

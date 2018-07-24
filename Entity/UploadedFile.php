@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: sERAPH1
+ * Date: 23/07/2018
+ * Time: 10:29
+ */
 
 namespace Seraph\Bundle\MediaBundle\Entity;
 
@@ -14,12 +20,19 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class UploadedFile
 {
     /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     protected $name;
 
     /**
-     * @ORM\UploadableField(mapping="uploaded_file_name", fileNameProperty="name")
+     * @Vich\UploadableField(mapping="uploaded_file_name", fileNameProperty="name")
      */
     protected $file;
 
@@ -39,6 +52,25 @@ class UploadedFile
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     * @return UploadedFile
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
 
     /**
      * @return mixed

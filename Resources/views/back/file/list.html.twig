@@ -1,4 +1,4 @@
-{% extends '@SeraphMedia/back/base.html.twig' %}
+{% extends '@SeraphMedia/base.html.twig' %}
 
 {% block title %}File list{% endblock %}
 
@@ -12,6 +12,7 @@
                     <th>Date Update</th>
                     <th>Group</th>
                     <th>User</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
         {% endblock %}
@@ -24,10 +25,15 @@
                         <td>{{ file.updateAt|date('d-m-Y') }}</td>
                         <td>{{ file.group.name|default('No group') }}</td>
                         <td>{{ file.user.fullName|default('No user') }}</td>
+                        <td>
+                            <a href="{{ path('seraph-edit-file', {"id_file" : file.id}) }}" class="text-primary mr-2"><i class="fas fa-edit mr-1"></i>Edit</a>
+                            <a href="{{ path('seraph-delete-file', {"id_file" : file.id}) }}" class="text-danger mr-2"><i class="far fa-trash-alt mr-1"></i>Delete</a>
+                        </td>
                     </tr>
                 {% else %}
                     <tr>
                         <td>No result</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

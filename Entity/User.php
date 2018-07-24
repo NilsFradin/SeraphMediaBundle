@@ -20,18 +20,18 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $firstname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Seraph\Bundle\MediaBundle\Group")
-     * @ORM\JoinTable(name="fos_user_user_group",
+     * @ORM\ManyToMany(targetEntity="Seraph\Bundle\MediaBundle\Entity\Group")
+     * @ORM\JoinTable(name="user_group",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
      * )
@@ -39,7 +39,7 @@ class User extends BaseUser
     protected $groups;
 
     /**
-     * @ORM\OneToMany(targetEntity="UploadedFile", mappedBy="user"
+     * @ORM\OneToMany(targetEntity="UploadedFile", mappedBy="user")
      */
     protected $files;
 

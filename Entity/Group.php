@@ -5,11 +5,11 @@ namespace Seraph\Bundle\MediaBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\Group as BaseGroup;
 use Doctrine\ORM\Mapping as ORM;
-use Seraph\Bundle\MediaBundle\Form\UploadedFileType;
+use Seraph\Bundle\MediaBundle\Form\Type\UploadedFileType;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name=""group)
+ * @ORM\Table(name="group")
  */
 class Group extends BaseGroup
 {
@@ -21,11 +21,6 @@ class Group extends BaseGroup
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    protected $name;
-
-    /**
      * @ORM\OneToMany(targetEntity="UploadedFile", mappedBy="group")
      */
     protected $files;
@@ -35,7 +30,7 @@ class Group extends BaseGroup
         $this->files = new ArrayCollection();
     }
 
-    /**
+    /**s
      * @return mixed
      */
     public function getId()
@@ -53,23 +48,6 @@ class Group extends BaseGroup
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     * @return Group
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
 
     /**
      * @return mixed
