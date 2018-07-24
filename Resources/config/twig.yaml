@@ -1,0 +1,7 @@
+services:
+    Seraph\Bundle\MediaBundle\Twig\:
+            resource: '../../Twig'
+            tags: ['controller.service_arguments', 'twig.extension']
+            arguments:
+                $registry: '@doctrine'
+                $twig: '@twig'

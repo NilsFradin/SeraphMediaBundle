@@ -47,10 +47,10 @@ class UploadedFileController extends Controller
      */
     public function editFile(ManagerRegistry $registry, Request $request, $id_file)
     {
-        $repository = $registry->getRepository(UploadedFile::class, $file);
+        $repository = $registry->getRepository(UploadedFile::class);
         $file = $repository->find($id_file);
 
-        $form = $this->createForm(UploadedFileType::class);
+        $form = $this->createForm(UploadedFileType::class, $file);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){

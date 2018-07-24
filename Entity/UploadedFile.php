@@ -32,7 +32,7 @@ class UploadedFile
     protected $name;
 
     /**
-     * @Vich\UploadableField(mapping="uploaded_file_name", fileNameProperty="name")
+     * @Vich\UploadableField(mapping="uploaded_file", fileNameProperty="name")
      */
     protected $file;
 

@@ -31,8 +31,8 @@ class User extends BaseUser
 
     /**
      * @ORM\ManyToMany(targetEntity="Seraph\Bundle\MediaBundle\Entity\Group")
-     * @ORM\JoinTable(name="user_group",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     * @ORM\JoinTable(name="user_group_user",
+     *      joinColumns={@ORM\JoinColum²n(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
      * )
      */

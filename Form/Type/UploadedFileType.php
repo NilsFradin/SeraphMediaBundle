@@ -2,8 +2,6 @@
 
 namespace Seraph\Bundle\MediaBundle\Form\Type;
 
-
-use Seraph\Bundle\MediaBundle\Entity\Group;
 use Seraph\Bundle\MediaBundle\Entity\UploadedFile;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

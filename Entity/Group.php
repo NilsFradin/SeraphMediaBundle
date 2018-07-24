@@ -5,11 +5,10 @@ namespace Seraph\Bundle\MediaBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\Group as BaseGroup;
 use Doctrine\ORM\Mapping as ORM;
-use Seraph\Bundle\MediaBundle\Form\Type\UploadedFileType;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="group")
+ * @ORM\Table(name="group_user")
  */
 class Group extends BaseGroup
 {
