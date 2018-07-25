@@ -42,13 +42,13 @@ class UploadedFile
     protected $updateAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Group", inversedBy="")
+     * @ORM\ManyToOne(targetEntity="Group", inversedBy="files")
      * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
      */
     protected $group;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="files")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
