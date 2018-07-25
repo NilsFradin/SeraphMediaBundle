@@ -42,14 +42,12 @@ class UploadedFile
     protected $updateAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Group", inversedBy="")
-     * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Seraph\Bundle\MediaBundle\Model\GroupInterface")
      */
     protected $group;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Seraph\Bundle\MediaBundle\Model\UserInterface")
      */
     protected $user;
 

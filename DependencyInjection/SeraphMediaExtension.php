@@ -15,6 +15,9 @@ class SeraphMediaExtension extends Extension implements PrependExtensionInterfac
         $configuration = new Configuration();
         $configs = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('seraph_media.user_class', $configs['user_class']);
+        $container->setParameter('seraph_media.group_class', $configs['group_class']);
+
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yaml');
         $loader->load('twig.yaml');
@@ -25,5 +28,7 @@ class SeraphMediaExtension extends Extension implements PrependExtensionInterfac
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('vich_uploader.yaml');
+
+        $bundles = $container->getParameter('kernel.bundles');
     }
 }
