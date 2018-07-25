@@ -30,5 +30,13 @@ class SeraphMediaExtension extends Extension implements PrependExtensionInterfac
         $loader->load('vich_uploader.yaml');
 
         $bundles = $container->getParameter('kernel.bundles');
+
+        if (!isset($bundles['DoctrineBundle'])){
+            $config = array(
+                'Seraph\Bundle\MediaBundle\Model\UserInterface' => $container->getParameter('seraph_media.user_class'),
+                'Seraph\Bundle\MediaBundle\Model\GroupInterface' => $container->getParameter('seraph_media.group_class')
+            );
+            $container->prependExtensionConfig('resolve_target_entities', $config);
+        }
     }
 }
