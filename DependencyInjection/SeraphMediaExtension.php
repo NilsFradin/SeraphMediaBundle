@@ -12,31 +12,28 @@ class SeraphMediaExtension extends Extension implements PrependExtensionInterfac
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
-        $configs = $this->processConfiguration($configuration, $configs);
-
-        $container->setParameter('seraph_media.user_class', $configs['user_class']);
-        $container->setParameter('seraph_media.group_class', $configs['group_class']);
-
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yaml');
         $loader->load('twig.yaml');
     }
-
 
     public function prepend(ContainerBuilder $container)
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('vich_uploader.yaml');
 
-        $bundles = $container->getParameter('kernel.bundles');
+        $configuration = new Configuration();
+        $configs = $this->processConfiguration($configuration, $container->getExtensionConfig($this->getAlias()));
+        $config = array(
+            "orm" =>
+                ["resolve_target_entities" =>
+                    [
+                        'Seraph\Bundle\MediaBundle\Model\UserInterface' => $configs['user_class'],
+                        'Seraph\Bundle\MediaBundle\Model\GroupInterface' =>  $configs['group_class']
+                    ]
+                ]
+        );
 
-        if (!isset($bundles['DoctrineBundle'])){
-            $config = array(
-                'Seraph\Bundle\MediaBundle\Model\UserInterface' => $container->getParameter('seraph_media.user_class'),
-                'Seraph\Bundle\MediaBundle\Model\GroupInterface' => $container->getParameter('seraph_media.group_class')
-            );
-            $container->prependExtensionConfig('resolve_target_entities', $config);
-        }
+        $container->prependExtensionConfig('doctrine', $config);
     }
 }

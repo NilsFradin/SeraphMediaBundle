@@ -2,9 +2,12 @@
 
 namespace Seraph\Bundle\MediaBundle\Entity;
 
+use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
+use Seraph\Bundle\MediaBundle\Model\UserInterface;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Seraph\Bundle\MediaBundle\Model\GroupInterface;
 
 /**
  * @ORM\Entity
@@ -37,11 +40,13 @@ class UploadedFile
 
     /**
      * @ORM\ManyToOne(targetEntity="Seraph\Bundle\MediaBundle\Model\GroupInterface")
+     * @var GroupInterface
      */
     protected $group;
 
     /**
      * @ORM\ManyToOne(targetEntity="Seraph\Bundle\MediaBundle\Model\UserInterface")
+     * @var UserInterface
      */
     protected $user;
 
