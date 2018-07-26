@@ -6,17 +6,16 @@
     "keywords": ["Media", "Multimedia", "Library", "User", "Multimedia library"],
     "require": {
         "php": "^7.0",
-        "friendsofsymfony/user-bundle": "^2.1",
-        "symfony/console": "^4.1",
+        "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
-        "symfony/form": "^4.1",
-        "symfony/framework-bundle": "^4.1",
+        "symfony/form": "^4.0",
+        "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
         "symfony/orm-pack": "^1.0",
         "symfony/swiftmailer-bundle": "^3.2",
-        "symfony/templating": "^4.1",
-        "symfony/twig-bundle": "^4.1",
-        "symfony/yaml": "^4.1",
+        "symfony/templating": "^4.0",
+        "symfony/twig-bundle": "^4.0",
+        "symfony/yaml": "^4.0",
         "vich/uploader-bundle": "^1.8"
     },
     "authors": [
