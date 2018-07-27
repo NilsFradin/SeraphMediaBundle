@@ -18,6 +18,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('user_class')->isRequired()->cannotBeEmpty()->end()
                 ->scalarNode('group_class')->cannotBeEmpty()->end()
+                ->scalarNode('upload_folder')->end()
             ->end();
 
         return $treeBuilder;

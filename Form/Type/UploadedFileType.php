@@ -16,12 +16,10 @@ class UploadedFileType extends AbstractType
             ->add('file', VichFileType::class, ['required' => false, 'allow_delete' => true, 'attr' => array('class' => 'form-control')])
             ->add('group', null, array('choice_label' => 'name', 'label' => 'Group', 'attr' => array('class' => 'form-control')))
             ->add('user', null, array('choice_label' => 'username', 'label' => 'User', 'attr' => array('class' => 'form-control')));
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefault('data_class', UploadedFile::class);
     }
-
 }
