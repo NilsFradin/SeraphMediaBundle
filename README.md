@@ -31,6 +31,7 @@ Installation
     seraph_media:
         user_class: App\Entity\User
         group_class: App\Entity\Group
+        # upload_folder: /uploads/
     ```
 
 3. Add routing of the bundle
@@ -41,7 +42,7 @@ Installation
     seraph_media:
         resource: '@SeraphMediaBundle/Controller'
         type: annotation
-        prefix: '/admin' 
+        # prefix: '/admin' 
     ``` 
 
 4. Update your database with User, Group and UploadedFile

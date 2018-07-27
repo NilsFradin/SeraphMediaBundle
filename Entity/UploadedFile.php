@@ -106,6 +106,9 @@ class UploadedFile
 
         if($file){
             $this->updateAt = new \DateTime('now');
+            $names = explode('.'.$file->getExtension(), $file->getFilename());
+            $name = $names[0];
+            $this->setName($name.'_'.rand().'.'.$file->getExtension());
         }
         return $this;
     }

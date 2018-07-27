@@ -37,7 +37,6 @@ class SeraphMediaExtension extends Extension implements PrependExtensionInterfac
             $container->setParameter('seraph_upload_folder', $configs['upload_folder']);
         }
 
-
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('vich_uploader.yaml');
 
