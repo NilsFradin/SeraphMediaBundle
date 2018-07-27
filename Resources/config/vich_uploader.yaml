@@ -1,5 +1,5 @@
 parameters:
-    app.path.uploaded_file: /uploads/
+    app.path.uploaded_file: '%seraph_upload_folder%'
 
 vich_uploader:
     db_driver: orm
@@ -7,4 +7,4 @@ vich_uploader:
     mappings:
         uploaded_file:
             uri_prefix: '%app.path.uploaded_file%'
-            upload_destination: '%kernel.root_dir%/../web/uploads/'
+            upload_destination: '%kernel.root_dir%/../web/%seraph_upload_folder%/'

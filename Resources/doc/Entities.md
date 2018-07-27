@@ -1,57 +1,43 @@
-Entities
-========
+Entities and Interfaces
+=======================
 
-In this bundle you can find 3 types of entities
+In this bundle you can find 2 interfaces and 1 entity 
 
-User
-----
+UserInterface
+-------------
 
-User extend the User class of FOSUserBundle
-
-Attributes :
-
-- __parent()
-- \# id : int
-- \# firstname : string(255)
-- \# name : string(255)
-- \# groups : ArrayCollection + ManyToMany Group
-- \# files : ArrayCollection + OneToMany UploadedFile
+UserInterface was implement by your Entity.
 
 Functions :
 
-- \+ __construct()
-- \+ get() and set()
-- \+ getFullName()
+- \+ getFiles()
+- \+ setFiles(UploadedFile)
 - \+ removeFile(UploadedFile)
 - \+ addFile(UploadedFile)
 
-Group
------
+GroupInterface
+--------------
 
-Group extend the Group class of FOSUserBundle
-
-Attributes :
-
-- \# __parent()
-- \# id : int
-- \# files : OneToMany UploadedFile
+GroupInterface was implement by your Entity.
 
 Functions :
 
-- \+ __construct()
-- \+ get() and set()
+- \+ getFiles()
+- \+ setFiles(UploadedFile)
 - \+ removeFile(UploadedFile)
 - \+ addFile(UploadedFile)
 
 UploadedFile
 ------------
 
+Attributes :
+
 - \# id : int
 - \# name : string(255)
 - \# file : UploadableField
 - \# updateAt : Datetime
-- \# group : ManyToOne Group
-- \# user : ManyToOne User
+- \# group : ManyToOne GroupInterface
+- \# user : ManyToOne UserInterface
 
 Functions :
 

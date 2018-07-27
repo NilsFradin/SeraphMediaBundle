@@ -30,4 +30,4 @@ For All
 {{ seraph_get_media() }}
 ```
 
-With this using you get the array of UploadedFile with de file that you provide for all
+With this using you get the array of UploadedFile with de file that you provide for alle
