@@ -52,6 +52,11 @@ class UploadedFile
     protected $user;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Directory", inversedBy="uploadedFiles")
+     */
+    protected $directory;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -166,4 +171,24 @@ class UploadedFile
         $this->user = $user;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDirectory()
+    {
+        return $this->directory;
+    }
+
+    /**
+     * @param mixed $directory
+     * @return UploadedFile
+     */
+    public function setDirectory($directory)
+    {
+        $this->directory = $directory;
+        return $this;
+    }
+
+
 }
